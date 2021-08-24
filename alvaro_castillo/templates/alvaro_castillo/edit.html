@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">  
+    <title>Editar</title>
+</head>
+<body>
+    <div class="div1">
+        <h2>Actualice los datos</h2>
+        <form method="POST" action="update">
+            {% csrf_token %}
+            <label for="nombre">Nombre: </label>
+            <input type="text" id="nombre" value="{{ pizza.nombre }}" name="nombre" placeholder="nombre de pizza">
+            <label for="ingredientes">Ingredientes: </label>
+            <input type="text" id="ingredientes" value="{{ pizza.ingredientes}}" name="ingredientes" placeholder="Ingredientes en pizza">
+            <label for="valor">Valor: </label>
+            <input type="text" id="valor" value="{{ pizza.valor }}" name="valor" placeholder="valor">
+            <input type="submit" class="btn1" value="Actualizar datos">
+        </form><br><br>
+        <a class="btn1" href="/" role="button">Inicio</a>
+        <a class="btn1" href="/read" role="button">Lista</a>
+    </div>
+</body>
+</html>

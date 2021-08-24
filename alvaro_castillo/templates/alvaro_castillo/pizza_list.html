@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">   
+    <title>Pizzas</title>
+</head>
+<body>
+    <div class="div1">
+        <h2>Lista de pizzas</h2>
+        <table>
+            <tr>
+                <th>Nombre</th>
+                <th>Ingredientes</th>
+                <th>Valor</th>
+            </tr>
+            {% for aux in lista %}
+            <tr>
+                <th>{{aux.nombre}}</th>
+                <th>{{aux.ingredientes}}</th>
+                <th>{{aux.valor}}</th>
+                <th>
+                    <form action="getId" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="id" value="{{aux.id}}">
+                        <button type="submit" class="btn1">Editar</button>
+                    </form>
+                </th>
+                <th>
+                    <form action="delete" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="id" value="{{ser.id}}">
+                        <button type="submit" class="btn1">Eliminar</button>
+                    </form>
+                </th>
+            </tr>
+            {% endfor %}
+        </table>
+        <br><br>
+        <a class="btn1" href="/" role="button">Volver</a>
+        <a class="btn1" href="/update" role="button">Modificar</a>
+    </div>
+</body>
+</html>
