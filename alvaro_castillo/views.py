@@ -41,4 +41,6 @@ def update(request):
     return redirect('/read')
 
 def delete(request):
-    return render(request, "alvaro_castillo/edit.html")
+    pizza = Pizza.objects.get(id=request.POST['id'])
+    pizza.delete()
+    return redirect("/read")

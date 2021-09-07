@@ -13,6 +13,7 @@
         <h2>Actualice los datos</h2>
         <form method="POST" action="update">
             {% csrf_token %}
+            <input type="hidden" id="id" name="id" value="{{ pizza.id }}" name="id"></input>
             <label for="nombre">Nombre: </label>
             <input type="text" id="nombre" value="{{ pizza.nombre }}" name="nombre" placeholder="nombre de pizza">
             <label for="ingredientes">Ingredientes: </label>

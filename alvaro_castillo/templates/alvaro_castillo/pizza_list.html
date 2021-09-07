@@ -32,7 +32,7 @@
                 <th>
                     <form action="delete" method="POST">
                         {% csrf_token %}
-                        <input type="hidden" name="id" value="{{ser.id}}">
+                        <input type="hidden" name="id" value="{{aux.id}}">
                         <button type="submit" class="btn1">Eliminar</button>
                     </form>
                 </th>
@@ -41,7 +41,6 @@
         </table>
         <br><br>
         <a class="btn1" href="/" role="button">Volver</a>
-        <a class="btn1" href="/update" role="button">Modificar</a>
     </div>
 </body>
 </html>

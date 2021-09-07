@@ -5,6 +5,7 @@ urlpatterns = [
     path('', views.index),
     path('add', views.add),
     path('read', (views.read.as_view())),
-    path('update', views.delete, name="update"),
+    path('update', views.update, name="update"),
     path('getId', views.getId, name="getId"),
+    path('delete', views.delete, name="delete"),
 ]
