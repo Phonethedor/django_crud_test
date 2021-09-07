@@ -7,6 +7,7 @@ from .models import Pizza
 def index(request):
     return render(request, "alvaro_castillo/index.html")
 
+
 def add(request):
     Pizza.objects.create(
     nombre = request.POST['nombre'],
@@ -15,10 +16,12 @@ def add(request):
     )
     return render(request,"alvaro_castillo/index.html")
 
+
 class read(ListView):
     template_name: "read.html"
     model = Pizza
     context_object_name = 'lista'
+
 
 def getId(request):
     pizza = Pizza.objects.get(id=request.POST['id'])
@@ -26,6 +29,7 @@ def getId(request):
         "pizza": pizza
     }
     return render(request,'alvaro_castillo/edit.html', context)
+
 
 def update(request):
     pizza = Pizza.objects.get(id=request.POST['id'])
@@ -40,6 +44,8 @@ def update(request):
     
     return redirect('/read')
 
+
 def delete(request):
     pizza = Pizza.objects.get(id=request.POST['id']).delete()
     return redirect("/read")
+

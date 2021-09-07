@@ -12,6 +12,7 @@ class pizzaManager(models.Manager): # se define el manager de cliente
             errors['valor'] = 'Ingrese valor'
         return errors
 
+
 class Pizza(models.Model):
     id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=50)
